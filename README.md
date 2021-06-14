@@ -1,4 +1,4 @@
-# Ictogenic node localization
+# Ictogenic nodes localization
 
 ### Objective
 Epilepsy surgery fails in >30% of patients with focal cortical dysplasia (FCD). The seizure persistence after surgery can be attributed to the inability 
