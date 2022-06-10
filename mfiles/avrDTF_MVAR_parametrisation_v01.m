@@ -1,22 +1,19 @@
 function [DTF,ttabs,settings]=avrDTF_MVAR_parametrisation_v01(d,tabs,fs,channel_err,bandwidth,ww,nn,mvar_max,ac_freq)
 % DTF signal parameterisation. 
-% The signal is sequentially filtered in defined bands and fragmented into
-% time-segments. Average DTF outflow is computed for each time segment that is parallelized by the MATLAB pool (parpool).
+% The signal is sequentially filtered in defined bands and fragmented into time-segments. Average DTF outflow is 
+% computed for each time segment that is parallelized by the MATLAB pool (parpool).
 % The final DTF matrix is assembled as products of the sub-bands. 
-%   d ... iEEG signal (time x channels)
-%   tabs ... time vector in datenum format (time x 1)
-%   fs ... sampling frequency
-%   channel_err ... vector of noise channels (1 x n)
+%
+%   d (required): matrix of iEEG signals (samples x channels)
+%   tabs: a time vector (samples x 1) in datenum format.
+%   fs (required): Sampling frequency (Hz)
+%   channel_err (optional): A vector of noise channels (1 x n)
 %   bandwidth ... matrix of sub-bands to frequency fragmented DTF
 %                 computation [f1low f1high; f2low f2high;...] f1<f2
 %   ww ... window of time-segmentation in seconds.
 %   nn ... overlap of time-segmentation in seconds, step=ww-nn
 %   mvar_max... maximal MVAR order in bands. For narrow bands is used twice of bandwidth
 %   ac_freq... frequency of AC-noise (e.g., 50 Hz - Europe, 60 Hz - USA)
-
-
-
-
 
 
 % frequency band and MVAR order limits ====================================
