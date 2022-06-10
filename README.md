@@ -27,8 +27,24 @@ Janca R, Jahodova A, Hlinka J, Jezdik P, Svobodova L, Kudr M, Kalina A, Marusic 
 ictogenic nodes of the epileptic network in focal cortical dysplasia. Clin. Neurophysiol. doi: [10.1016/j.clinph.2021.04.016](https://doi.org/10.1016/j.clinph.2021.04.016)
 
 ## Test data
-
 Files are available on [Google Drive](https://drive.google.com/drive/folders/12WbOmEdkiEHouKzqIJ-JSLEcC886w9C5?usp=sharing).
+
+## Tips for success
+
+The main m-file is `avrDTF_ICN_SOZ_v01.m`, and a data dictionary can be found there. Running this file leads to calling the eight other files in the same directory.
+
+SOZ detection (ictogenic nodes), IED detection, and sub-regional masking each only require iEEG (data matrix, time vector and sampling frequency, label – names of channels) as a minimum. Specifically:
+
+- Consider starting with 4 minutes of pre-ictal data plus up to 1 minute of data following seizure onset.
+- For IED detection, a minimum of 3 hours awake plus 3 hours asleep is recommended. Even better is a continuous segment of 24- to 48 hours.
+
+PET postprocessing requires good quality isometric T1 (<1 mm) and FDG-PET (with CT/MR).
+
+Guide to acronyms seen in figures:
+
+- `sot` (optional): The seizure onset time, in datenum format. It's used only for plotting of dotted red line to figure(1) and (2) for comparison with detection (dotted cyan line).
+- `soz` (optional): A vector of channels marked by a clinician, also only for plotting and comparison with algorithm's result.
+- `ICNs`: The result. This represents the SOZ, i.e. the channels actively generating seizure between `sot` and +6.5s. 
 
 ## Contact
 Questions and error reports sent to:
